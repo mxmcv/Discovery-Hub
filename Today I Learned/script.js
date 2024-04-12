@@ -1,8 +1,13 @@
 console.log('hello world');
 
+// SELECTING DOM ELEMENTS
 const btn = document.querySelector('.btn-open');
 const form = document.querySelector('.fact-form');
+const factsList = document.querySelector('.facts-list');
 
+factsList.innerHTML = '';
+
+// TOGGLE FORM VISIBLITY
 btn.addEventListener('click', function () {
   if (form.classList.contains('hidden')) {
     form.classList.remove('hidden');
