@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './styles.css';
 
 const initialFacts = [
@@ -34,7 +35,21 @@ const initialFacts = [
   },
 ];
 
+// function Counter() {
+//   const [count, setCount] = useState(0);
+//   return (
+//     <div>
+//       <span style={{ fontSize: '40px' }}>{count}</span>
+//       <button className="btn btn-large" onClick={() => setCount((c) => c + 1)}>
+//         +1
+//       </button>
+//     </div>
+//   );
+// }
+
 function App() {
+  const [showForm, setShowForm] = useState(false);
+
   const appTitle = 'Today I Learned';
 
   return (
@@ -45,10 +60,16 @@ function App() {
           <img src="logo.png" alt="Today I Learned Logo" />
           <h1>{appTitle}</h1>
         </div>
-        <button className="btn btn-large btn-open">Share a fact</button>
+        <button
+          className="btn btn-large btn-open"
+          onClick={() => setShowForm((show) => !show)}
+        >
+          Share a fact
+        </button>
       </header>
 
-      <NewFactForm />
+      {showForm ? <NewFactForm /> : null}
+
       <main className="main">
         <CategoryFilter />
         <FactList />
