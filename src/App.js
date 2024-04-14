@@ -49,8 +49,8 @@ const initialFacts = [
 
 function App() {
   const [showForm, setShowForm] = useState(false);
-
   const appTitle = 'Today I Learned';
+  const [facts, setFacts] = useState(initialFacts);
 
   return (
     <>
@@ -93,19 +93,65 @@ const CATEGORIES = [
   { name: 'news', color: '#8b5cf6' },
 ];
 
+function isValidHttpUrl(string) {
+  let url;
+  try {
+    url = new URL(string);
+  } catch (_) {
+    return false;
+  }
+  return url.protocol === 'http:' || url.protocol === 'https:';
+}
+
 function NewFactForm() {
   const [text, setText] = useState('');
+  const [source, setSource] = useState('');
+  const [category, setCategory] = useState('');
+  const textLength = text.length;
+
+  function handleSubmit(e) {
+    // 1 prevent broswer reload
+    e.preventDefault();
+    console.log(text, category, source);
+
+    // 2 check if data is valid. if so, create a new fact
+    if (text && isValidHttpUrl(source) && category && textLength <= 200) {
+      // 3 create new fact object
+      const newFact = {
+        id: Math.round(Math.random() * 1000000),
+        text,
+        source,
+        category,
+        votesInteresting: 0,
+        votesMindblowing: 0,
+        votesFalse: 0,
+        createdIn: new Date().getCurrentYear(),
+      };
+    }
+
+    // 4 add the new fact to the UI:add the fact to state
+
+    // 5 reset input fields
+
+    // 6 close the form
+  }
+
   return (
-    <form className="fact-form">
+    <form className="fact-form" onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="Share a fact with the world..."
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
-      <span>200</span>
-      <input type="text" placeholder="Trustworthy source..." />
-      <select name="" id="">
+      <span>{200 - textLength}</span>
+      <input
+        value={source}
+        type="text"
+        placeholder="Trustworthy source..."
+        onChange={(e) => setSource(e.target.value)}
+      />
+      <select value={category} onChange={(e) => setCategory(e.target.value)}>
         <option value="">Choose category:</option>
         {CATEGORIES.map((cat) => (
           <option key={cat.name} value={cat.name}>
@@ -142,7 +188,6 @@ function CategoryFilter() {
 
 function FactList() {
   // TEMPORARY
-  const facts = initialFacts;
 
   return (
     <section>
