@@ -158,7 +158,7 @@ function NewFactForm({ setFacts, setShowForm }) {
       <input
         value={source}
         type="text"
-        placeholder="Trustworthy source..."
+        placeholder="Source..."
         onChange={(e) => setSource(e.target.value)}
         disabled={isUploading}
       />
