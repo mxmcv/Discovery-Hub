@@ -1,4 +1,4 @@
-# [Visit Ripple](https://discovery-hub.netlify.app/)
+# [Visit Ripple](https://ripple-site.netlify.app/)
 
 <img src="https://github.com/user-attachments/assets/316db9ca-b3a1-49fc-b1d8-b964e75ec38d" alt="Slingers" title="Play against a friend or the computer and experience the beautiful cityscapes" />
 <br />
