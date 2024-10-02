@@ -57,7 +57,7 @@ function Loader() {
 }
 
 function Header({ showForm, setShowForm }) {
-  const appTitle = 'Discovery Hub';
+  const appTitle = 'Ripple';
 
   return (
     <header className="header">
