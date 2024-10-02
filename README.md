@@ -1,6 +1,6 @@
 # [Visit Ripple](https://discovery-hub.netlify.app/)
 
-<img src="https://github.com/user-attachments/assets/0c095f04-c5be-4033-9643-0b52121a5f4c" alt="Slingers" title="Play against a friend or the computer and experience the beautiful cityscapes" />
+<img src="https://github.com/user-attachments/assets/316db9ca-b3a1-49fc-b1d8-b964e75ec38d" alt="Slingers" title="Play against a friend or the computer and experience the beautiful cityscapes" />
 <br />
 <br />
 Ripple is a full-stack web application designed to cultivate a community of curiosity and learning.
